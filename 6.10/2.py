@@ -23,7 +23,7 @@ for w in words:
 
 print(f"гласных: {vowel_cnt}")
 print(f"согласных: {consonant_cnt}")
-print(f"пробелом: {spaces_cnt}")
+print(f"пробелов: {spaces_cnt}")
 print(f"слов: {len(words)}")
 print(f"популярные слова: {[x[0] for x in sorted(words_dict.items(), 
                                   key=lambda word: word[1], reverse=True)[:3]]}")

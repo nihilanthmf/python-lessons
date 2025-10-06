@@ -18,8 +18,52 @@ class BankAccount:
 def create_account(initial_balance):
     return BankAccount(initial_balance)
 
-account_1 = create_account(100)
+account = None
+account_2 = create_account(0)
 
-account_1.decrease_balance(10)
-account_1.check_balance()
+while(True):
+    command = None
+    command = input(
+        "\nвведите\n" \
+        "1 (создать счет)\n" \
+        "2 (пополнить баланс)\n" \
+        "3 (списать со счета)\n" \
+        "4 (проверить баланс)\n" \
+        "5 (перевести на account_2): ")
 
+    if command not in "12345":
+        print("вводите только 1, 2, 3, 4 или 5!")
+        continue
+    command = int(command)
+
+    if account == None and command != 1:
+        print("сначала создайте счет!")
+        continue
+    elif account != None and command == 1:
+        print("Счет уже создан!")    
+        continue
+
+    
+    if command == 1:
+        account = create_account(0)
+    if command == 2:
+        try:
+            amount = int(input("Введите сумму: "))
+            account.increase_balance(amount)
+        except:
+            print("Сумма должны быть числом!")
+    if command == 3:
+        try:
+            amount = int(input("Введите сумму: "))
+            account.decrease_balance(amount)
+        except:
+            print("Сумма должны быть числом!")
+    if command == 4:
+        account.check_balance()
+    if command == 5:
+        try:
+            amount = int(input("Введите сумму: "))
+            account.transfer(amount, account_2)
+        except:
+            print("Сумма должны быть числом!")
+        
