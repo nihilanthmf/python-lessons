@@ -19,10 +19,10 @@ while user_points != 3 and bot_points != 3:
 
     if bot_turn > user_turn or (bot_turn == 0 and user_turn == 2):
         bot_points += 1
-    elif bot_turn == user_turn:
-        continue
-    else:
+    elif user_turn > bot_turn:
         user_points += 1
+
+    print(f"Вы: {user_points}, Бот: {bot_points}")
 
 print("вы выиграли" if user_points == 3 else "вы проиграли")
 

@@ -43,7 +43,6 @@ while(True):
         print("Счет уже создан!")    
         continue
 
-    
     if command == 1:
         account = create_account(0)
     if command == 2:
